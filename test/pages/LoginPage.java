@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.capstone.utils.CustomWebDriver;
-import com.epam.healenium.annotation.DisableHealing;
+import com.capstone.utils.loggers.LoggerUtil;
 
 
 public class LoginPage extends BasePage {
@@ -33,6 +33,7 @@ public class LoginPage extends BasePage {
 	
 	public void login(String userName,String password)
 	{
+		LoggerUtil.logINFO("*********** Login**************");
 		driver.setText(txtUserName, userName);
 		driver.setText(txtPassword, password);
 		driver.click(btnLogin);
