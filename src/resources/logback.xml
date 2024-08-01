@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level - %msg %n
+            </Pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>target/logs/cx_auto.log</file>
+        <append>false</append>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+		     <level>INFO</level>
+		     <onMatch>ACCEPT</onMatch>
+		     <onMismatch>DENY</onMismatch>
+		</filter>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{35} - %msg %n</pattern>
+        </encoder>
+    </appender>
+    <appender name="SLACK_ALERT" class="ch.qos.logback.core.FileAppender">		
+        <file>target/logs/slack_alerts.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="Info Data" level="INFO" additivity="false">
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="Info to Debug" level="INFO" additivity="false">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+    <logger name="Debug Data" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE"/>
+    </logger>
+    <logger name="Slack Alert Info" level="INFO" additivity="false">
+        <appender-ref ref="SLACK_ALERT"/>
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <root level="info">
+    	<appender-ref ref="CONSOLE" />
+    	<appender-ref ref="FILE" />
+  	</root>
+</configuration>
