@@ -7,6 +7,8 @@
 	<artifactId>CapstoneProject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	   <properties>
+		   		<test.suite>testng</test.suite>
+
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <junit.version>5.10.0</junit.version>
@@ -64,7 +66,7 @@
 				<configuration>					
 					<testFailureIgnore>true</testFailureIgnore>
 					<suiteXmlFiles>
-						<suiteXmlFile>./test/testng/testng.xml</suiteXmlFile>
+						<suiteXmlFile>./test/testng/${test.suite}.xml</suiteXmlFile>
 					</suiteXmlFiles>
 				</configuration>
 			</plugin>

@@ -2,6 +2,7 @@ version: "3.9"
 
 services:
 
+
   postgres-db:
     image: postgres:15.5-alpine
     container_name: postgres-db
@@ -13,27 +14,29 @@ services:
     environment:
       - POSTGRES_DB=healenium
       - POSTGRES_USER=healenium_user
-      - POSTGRES_PASSWORD=YDk2nmNs4s9aCP6K
+      - POSTGRES_PASSWORD=/run/secrets/db_pwd
+    secrets:
+       - db_pwd  
     networks:
       - healenium
-
+   
   healenium:
     image: healenium/hlm-backend:3.4.4
     container_name: healenium
     restart: on-failure
     ports:
       - "7878:7878"
-    links:
-      - postgres-db
     environment:
       - SPRING_POSTGRES_DB=healenium
       - SPRING_POSTGRES_SCHEMA=healenium
       - SPRING_POSTGRES_USER=healenium_user
-      - SPRING_POSTGRES_PASSWORD=${DB_PWD}
+      - SPRING_POSTGRES_PASSWORD=/run/secrets/db_pwd
       - SPRING_POSTGRES_DB_HOST=postgres-db
       - KEY_SELECTOR_URL=false
       - COLLECT_METRICS=true
       - HLM_LOG_LEVEL=debug
+    secrets:
+       - db_pwd
     volumes:
       - ./screenshots/:/screenshots
       - ./logs/:/logs
@@ -48,6 +51,10 @@ services:
       - "8000:8000"
     networks:
       - healenium
+
+secrets:
+   db_pwd:
+     file: db_pwd.txt
 
 networks:
   healenium:

@@ -103,7 +103,7 @@ public class CustomSetup {
 	    private void startDockers()
 	    {
 	    	System.out.println("****** Start docker *****");
-	    	ProcessBuilder pb = new ProcessBuilder("cmd.exe", "/C","docker-compose up -d");
+	    	ProcessBuilder pb = new ProcessBuilder("cmd.exe", "/C","docker-compose --env-file default.env up -d");
 	    	//pb.command("/docker_start.bat");
 	    	try {
 
