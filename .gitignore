@@ -4,3 +4,5 @@
 resources/logs/healenium-backend.log
 /resources/logs
 /resources/screenshots
+/infra/logs
+/infra/screenshots

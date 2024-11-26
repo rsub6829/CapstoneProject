@@ -1,0 +1,252 @@
+2024-11-26 10:44:34.406  INFO 1 - [       main] c.epam.healenium.Application     : Starting Application v3.4.4 using Java 17.0.10 with PID 1 (/healenium-backend.jar started by root in /) 
+2024-11-26 10:44:34.413  INFO 1 - [       main] c.epam.healenium.Application     : No active profile set, falling back to 1 default profile: "default" 
+2024-11-26 10:44:38.019  INFO 1 - [       main] .RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2024-11-26 10:44:38.533  INFO 1 - [       main] .RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 470 ms. Found 4 JPA repository interfaces. 
+2024-11-26 10:44:40.615  INFO 1 - [       main] o.s.b.w.e.t.TomcatWebServer      : Tomcat initialized with port 7878 (http) 
+2024-11-26 10:44:40.649  INFO 1 - [       main] o.a.c.core.StandardService       : Starting service [Tomcat] 
+2024-11-26 10:44:40.650  INFO 1 - [       main] o.a.c.core.StandardEngine        : Starting Servlet engine: [Apache Tomcat/10.1.18] 
+2024-11-26 10:44:40.810  INFO 1 - [       main] o.a.c.c.C.[.[localhost].[/]      : Initializing Spring embedded WebApplicationContext 
+2024-11-26 10:44:40.813  INFO 1 - [       main] rvletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6177 ms 
+2024-11-26 10:44:42.251  INFO 1 - [       main] c.z.hikari.HikariDataSource      : HikariPool-1 - Starting... 
+2024-11-26 10:44:42.745  INFO 1 - [       main] c.z.hikari.HikariDataSource      : HikariPool-1 - Start completed. 
+2024-11-26 10:44:43.168  INFO 1 - [       main] liquibase.database               : Set default schema name to healenium 
+2024-11-26 10:44:44.838  INFO 1 - [       main] liquibase.changelog              : Creating database history table with name: healenium.databasechangelog 
+2024-11-26 10:44:44.919  INFO 1 - [       main] liquibase.changelog              : Reading from healenium.databasechangelog 
+2024-11-26 10:44:45.277  INFO 1 - [       main] liquibase.lockservice            : Successfully acquired change log lock 
+2024-11-26 10:44:45.282  INFO 1 - [       main] liquibase.command                : Using deploymentId: 2607085281 
+2024-11-26 10:44:45.288  INFO 1 - [       main] liquibase.changelog              : Reading from healenium.databasechangelog 
+2024-11-26 10:44:45.400  INFO 1 - [       main] liquibase.ui                     : Running Changeset: changelog/001_createSequence.xml::3::nkobzev 
+2024-11-26 10:44:45.426  INFO 1 - [       main] liquibase.changelog              : Sequence healing_result_seq created 
+2024-11-26 10:44:45.432  INFO 1 - [       main] liquibase.changelog              : ChangeSet changelog/001_createSequence.xml::3::nkobzev ran successfully in 28ms 
+2024-11-26 10:44:45.462  INFO 1 - [       main] liquibase.ui                     : Running Changeset: changelog/002_selector.xml::5::nkobzev 
+2024-11-26 10:44:45.488  INFO 1 - [       main] liquibase.changelog              : Table SELECTOR created 
+2024-11-26 10:44:45.494  INFO 1 - [       main] liquibase.changelog              : ChangeSet changelog/002_selector.xml::5::nkobzev ran successfully in 31ms 
+2024-11-26 10:44:45.512  INFO 1 - [       main] liquibase.ui                     : Running Changeset: changelog/002_selector.xml::6::nkobzev 
+2024-11-26 10:44:45.627  INFO 1 - [       main] liquibase.changelog              : Index SELECTOR_PK created 
+2024-11-26 10:44:45.639  INFO 1 - [       main] liquibase.changelog              : ChangeSet changelog/002_selector.xml::6::nkobzev ran successfully in 125ms 
+2024-11-26 10:44:45.680  INFO 1 - [       main] liquibase.ui                     : Running Changeset: changelog/003_healing.xml::7::nkobzev 
+2024-11-26 10:44:45.702  INFO 1 - [       main] liquibase.changelog              : Table HEALING created 
+2024-11-26 10:44:45.708  INFO 1 - [       main] liquibase.changelog              : ChangeSet changelog/003_healing.xml::7::nkobzev ran successfully in 27ms 
+2024-11-26 10:44:45.725  INFO 1 - [       main] liquibase.ui                     : Running Changeset: changelog/003_healing.xml::8::nkobzev 
+2024-11-26 10:44:45.816  INFO 1 - [       main] liquibase.changelog              : Index HEALING_PK created 
+2024-11-26 10:44:45.827  INFO 1 - [       main] liquibase.changelog              : Foreign key constraint added to HEALING (SELECTOR_ID) 
+2024-11-26 10:44:45.839  INFO 1 - [       main] liquibase.changelog              : ChangeSet changelog/003_healing.xml::8::nkobzev ran successfully in 112ms 
+2024-11-26 10:44:45.857  INFO 1 - [       main] liquibase.ui                     : Running Changeset: changelog/004_healingResult.xml::9::nkobzev 
+2024-11-26 10:44:45.907  INFO 1 - [       main] liquibase.changelog              : Table HEALING_RESULT created 
+2024-11-26 10:44:45.917  INFO 1 - [       main] liquibase.changelog              : ChangeSet changelog/004_healingResult.xml::9::nkobzev ran successfully in 56ms 
+2024-11-26 10:44:45.928  INFO 1 - [       main] liquibase.ui                     : Running Changeset: changelog/004_healingResult.xml::10::nkobzev 
+2024-11-26 10:44:46.001  INFO 1 - [       main] liquibase.changelog              : Index HEALING_RESULT_PK created 
+2024-11-26 10:44:46.008  INFO 1 - [       main] liquibase.changelog              : Foreign key constraint added to HEALING_RESULT (HEALING_ID) 
+2024-11-26 10:44:46.018  INFO 1 - [       main] liquibase.changelog              : ChangeSet changelog/004_healingResult.xml::10::nkobzev ran successfully in 88ms 
+2024-11-26 10:44:46.043  INFO 1 - [       main] liquibase.ui                     : Running Changeset: changelog/005_report.xml::11::nkobzev 
+2024-11-26 10:44:46.063  INFO 1 - [       main] liquibase.changelog              : Table REPORT created 
+2024-11-26 10:44:46.068  INFO 1 - [       main] liquibase.changelog              : ChangeSet changelog/005_report.xml::11::nkobzev ran successfully in 20ms 
+2024-11-26 10:44:46.080  INFO 1 - [       main] liquibase.ui                     : Running Changeset: changelog/005_report.xml::12::nkobzev 
+2024-11-26 10:44:46.137  INFO 1 - [       main] liquibase.changelog              : Index REPORT_PK created 
+2024-11-26 10:44:46.141  INFO 1 - [       main] liquibase.changelog              : ChangeSet changelog/005_report.xml::12::nkobzev ran successfully in 59ms 
+2024-11-26 10:44:46.150  INFO 1 - [       main] liquibase.ui                     : Running Changeset: changelog/006_command_and_healingenable_column.xml::13::nkobzev 
+2024-11-26 10:44:46.157  INFO 1 - [       main] liquibase.changelog              : Columns COMMAND(VARCHAR(264)),ENABLE_HEALING(BOOLEAN) added to SELECTOR 
+2024-11-26 10:44:46.161  INFO 1 - [       main] liquibase.changelog              : ChangeSet changelog/006_command_and_healingenable_column.xml::13::nkobzev ran successfully in 9ms 
+2024-11-26 10:44:46.180  INFO 1 - [       main] liquibase.util                   : UPDATE SUMMARY 
+2024-11-26 10:44:46.181  INFO 1 - [       main] liquibase.util                   : Run:                         10 
+2024-11-26 10:44:46.182  INFO 1 - [       main] liquibase.util                   : Previously run:               0 
+2024-11-26 10:44:46.183  INFO 1 - [       main] liquibase.util                   : Filtered out:                 0 
+2024-11-26 10:44:46.184  INFO 1 - [       main] liquibase.util                   : ------------------------------- 
+2024-11-26 10:44:46.185  INFO 1 - [       main] liquibase.util                   : Total change sets:           10 
+2024-11-26 10:44:46.186  INFO 1 - [       main] liquibase.util                   : Update summary generated 
+2024-11-26 10:44:46.192  INFO 1 - [       main] liquibase.command                : Update command completed successfully. 
+2024-11-26 10:44:46.194  INFO 1 - [       main] liquibase.ui                     : Liquibase: Update has been successful. Rows affected: 10 
+2024-11-26 10:44:46.203  INFO 1 - [       main] liquibase.lockservice            : Successfully released change log lock 
+2024-11-26 10:44:46.206  INFO 1 - [       main] liquibase.command                : Command execution complete 
+2024-11-26 10:44:46.639  INFO 1 - [       main] o.h.j.internal.util.LogHelper    : HHH000204: Processing PersistenceUnitInfo [name: default] 
+2024-11-26 10:44:47.148  INFO 1 - [       main] org.hibernate.Version            : HHH000412: Hibernate ORM core version 6.4.1.Final 
+2024-11-26 10:44:47.276  INFO 1 - [       main] o.h.c.i.RegionFactoryInitiator   : HHH000026: Second-level cache disabled 
+2024-11-26 10:44:48.064  INFO 1 - [       main] .o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer 
+2024-11-26 10:44:48.196  WARN 1 - [       main] org.hibernate.orm.deprecation    : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default) 
+2024-11-26 10:44:51.090  WARN 1 - [       main] o.h.m.internal.MetadataContext   : HHH015011: Unable to locate static metamodel field : com.epam.healenium.model.domain.Selector_#nodePathWrapper; this may or may not indicate a problem with the static metamodel 
+2024-11-26 10:44:51.098  INFO 1 - [       main] h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration) 
+2024-11-26 10:44:51.104  INFO 1 - [       main] ontainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2024-11-26 10:44:52.505  INFO 1 - [       main] o.s.d.j.r.q.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used. 
+2024-11-26 10:44:55.228  INFO 1 - [       main] .a.w.s.WelcomePageHandlerMapping : Adding welcome page template: index 
+2024-11-26 10:44:58.732  INFO 1 - [       main] .s.b.a.e.w.EndpointLinksResolver : Exposing 1 endpoint(s) beneath base path '/actuator' 
+2024-11-26 10:44:59.085  INFO 1 - [       main] o.s.b.w.e.t.TomcatWebServer      : Tomcat started on port 7878 (http) with context path '' 
+2024-11-26 10:44:59.549 DEBUG 1 - [       main] healenium                        : [Migrate] There is no selectors to migrate 
+2024-11-26 10:44:59.572  INFO 1 - [       main] c.epam.healenium.Application     : Started Application in 27.621 seconds (process running for 30.285) 
+2024-11-26 10:45:29.475  INFO 1 - [7878-exec-1] o.a.c.c.C.[.[localhost].[/]      : Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2024-11-26 10:45:29.476  INFO 1 - [7878-exec-1] o.s.w.s.DispatcherServlet        : Initializing Servlet 'dispatcherServlet' 
+2024-11-26 10:45:29.479  INFO 1 - [7878-exec-1] o.s.w.s.DispatcherServlet        : Completed initialization in 2 ms 
+2024-11-26 10:45:29.574 DEBUG 1 - [7878-exec-1] healenium                        : [Get Elements] Response: ConfigSelectorDto(urlForKey=false, pathForKey=false, disableHealingElementDto=[], enableHealingElementsDto=[], findElementsAutoHealing=false) 
+2024-11-26 10:45:32.101  INFO 1 - [7878-exec-3] healenium                        : [Save Elements] Request: By.id(user-name) 
+2024-11-26 10:45:32.109 DEBUG 1 - [7878-exec-3] healenium                        : [Selector ID] Locator: user-name, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:45:32.109 DEBUG 1 - [7878-exec-3] healenium                        : [Selector ID] Result ID: 69735d473c34ed7586f320a25dd791f0 
+2024-11-26 10:45:32.181 DEBUG 1 - [7878-exec-3] healenium                        : [Save Elements] Selector: Selector(uid=69735d473c34ed7586f320a25dd791f0, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=setText, locator=Locator(value=user-name, type=By.id), command=findElement, createdDate=2024-11-26T07:45:32.123596674, enableHealing=true) 
+2024-11-26 10:45:32.407  INFO 1 - [7878-exec-4] healenium                        : [Save Elements] Request: By.id(password) 
+2024-11-26 10:45:32.408 DEBUG 1 - [7878-exec-4] healenium                        : [Selector ID] Locator: password, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:45:32.409 DEBUG 1 - [7878-exec-4] healenium                        : [Selector ID] Result ID: 97b893f9fa8cf998625afa54ff13703f 
+2024-11-26 10:45:32.418 DEBUG 1 - [7878-exec-4] healenium                        : [Save Elements] Selector: Selector(uid=97b893f9fa8cf998625afa54ff13703f, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=setText, locator=Locator(value=password, type=By.id), command=findElement, createdDate=2024-11-26T07:45:32.413481427, enableHealing=true) 
+2024-11-26 10:45:32.545  INFO 1 - [7878-exec-5] healenium                        : [Save Elements] Request: By.name(login-button) 
+2024-11-26 10:45:32.546 DEBUG 1 - [7878-exec-5] healenium                        : [Selector ID] Locator: login-button, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:45:32.546 DEBUG 1 - [7878-exec-5] healenium                        : [Selector ID] Result ID: 66c7844ba6d647d082d05920e543ec5f 
+2024-11-26 10:45:32.554 DEBUG 1 - [7878-exec-5] healenium                        : [Save Elements] Selector: Selector(uid=66c7844ba6d647d082d05920e543ec5f, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=click, locator=Locator(value=login-button, type=By.name), command=findElement, createdDate=2024-11-26T07:45:32.548861310, enableHealing=true) 
+2024-11-26 10:45:32.726  INFO 1 - [7878-exec-6] healenium                        : [Save Elements] Request: By.xpath(//h3[@data-test='error']) 
+2024-11-26 10:45:32.728 DEBUG 1 - [7878-exec-6] healenium                        : [Selector ID] Locator: //h3[@data-test='error'], URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:45:32.729 DEBUG 1 - [7878-exec-6] healenium                        : [Selector ID] Result ID: f6729337130b72830c239a00ec890aec 
+2024-11-26 10:45:32.740 DEBUG 1 - [7878-exec-6] healenium                        : [Save Elements] Selector: Selector(uid=f6729337130b72830c239a00ec890aec, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=validateText, locator=Locator(value=//h3[@data-test='error'], type=By.xpath), command=findElement, createdDate=2024-11-26T07:45:32.732274128, enableHealing=true) 
+2024-11-26 10:45:34.966 DEBUG 1 - [7878-exec-7] healenium                        : [Get Elements] Response: ConfigSelectorDto(urlForKey=false, pathForKey=false, disableHealingElementDto=[], enableHealingElementsDto=[], findElementsAutoHealing=false) 
+2024-11-26 10:45:35.840  INFO 1 - [7878-exec-9] healenium                        : [Save Elements] Request: By.id(user-name) 
+2024-11-26 10:45:35.842 DEBUG 1 - [7878-exec-9] healenium                        : [Selector ID] Locator: user-name, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:45:35.844 DEBUG 1 - [7878-exec-9] healenium                        : [Selector ID] Result ID: 69735d473c34ed7586f320a25dd791f0 
+2024-11-26 10:45:35.880 DEBUG 1 - [7878-exec-9] healenium                        : [Save Elements] Selector: Selector(uid=69735d473c34ed7586f320a25dd791f0, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=setText, locator=Locator(value=user-name, type=By.id), command=findElement, createdDate=2024-11-26T07:45:35.877306540, enableHealing=true) 
+2024-11-26 10:45:36.260  INFO 1 - [878-exec-10] healenium                        : [Save Elements] Request: By.id(password) 
+2024-11-26 10:45:36.262 DEBUG 1 - [878-exec-10] healenium                        : [Selector ID] Locator: password, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:45:36.263 DEBUG 1 - [878-exec-10] healenium                        : [Selector ID] Result ID: 97b893f9fa8cf998625afa54ff13703f 
+2024-11-26 10:45:36.279 DEBUG 1 - [878-exec-10] healenium                        : [Save Elements] Selector: Selector(uid=97b893f9fa8cf998625afa54ff13703f, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=setText, locator=Locator(value=password, type=By.id), command=findElement, createdDate=2024-11-26T07:45:36.278515980, enableHealing=true) 
+2024-11-26 10:45:36.511  INFO 1 - [7878-exec-1] healenium                        : [Save Elements] Request: By.name(login-button) 
+2024-11-26 10:45:36.512 DEBUG 1 - [7878-exec-1] healenium                        : [Selector ID] Locator: login-button, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:45:36.513 DEBUG 1 - [7878-exec-1] healenium                        : [Selector ID] Result ID: 66c7844ba6d647d082d05920e543ec5f 
+2024-11-26 10:45:36.521 DEBUG 1 - [7878-exec-1] healenium                        : [Save Elements] Selector: Selector(uid=66c7844ba6d647d082d05920e543ec5f, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=click, locator=Locator(value=login-button, type=By.name), command=findElement, createdDate=2024-11-26T07:45:36.521193904, enableHealing=true) 
+2024-11-26 10:45:36.751  INFO 1 - [7878-exec-2] healenium                        : [Save Elements] Request: By.xpath(//h3[@data-test='error']) 
+2024-11-26 10:45:36.753 DEBUG 1 - [7878-exec-2] healenium                        : [Selector ID] Locator: //h3[@data-test='error'], URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:45:36.754 DEBUG 1 - [7878-exec-2] healenium                        : [Selector ID] Result ID: f6729337130b72830c239a00ec890aec 
+2024-11-26 10:45:36.763 DEBUG 1 - [7878-exec-2] healenium                        : [Save Elements] Selector: Selector(uid=f6729337130b72830c239a00ec890aec, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=validateText, locator=Locator(value=//h3[@data-test='error'], type=By.xpath), command=findElement, createdDate=2024-11-26T07:45:36.762414128, enableHealing=true) 
+2024-11-26 10:45:38.778 DEBUG 1 - [7878-exec-3] healenium                        : [Get Elements] Response: ConfigSelectorDto(urlForKey=false, pathForKey=false, disableHealingElementDto=[], enableHealingElementsDto=[], findElementsAutoHealing=false) 
+2024-11-26 10:45:39.615  INFO 1 - [7878-exec-5] healenium                        : [Save Elements] Request: By.id(user-name) 
+2024-11-26 10:45:39.621 DEBUG 1 - [7878-exec-5] healenium                        : [Selector ID] Locator: user-name, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:45:39.622 DEBUG 1 - [7878-exec-5] healenium                        : [Selector ID] Result ID: 69735d473c34ed7586f320a25dd791f0 
+2024-11-26 10:45:39.629 DEBUG 1 - [7878-exec-5] healenium                        : [Save Elements] Selector: Selector(uid=69735d473c34ed7586f320a25dd791f0, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=setText, locator=Locator(value=user-name, type=By.id), command=findElement, createdDate=2024-11-26T07:45:39.628833355, enableHealing=true) 
+2024-11-26 10:45:39.862  INFO 1 - [7878-exec-7] healenium                        : [Save Elements] Request: By.id(password) 
+2024-11-26 10:45:39.865 DEBUG 1 - [7878-exec-7] healenium                        : [Selector ID] Locator: password, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:45:39.866 DEBUG 1 - [7878-exec-7] healenium                        : [Selector ID] Result ID: 97b893f9fa8cf998625afa54ff13703f 
+2024-11-26 10:45:39.877 DEBUG 1 - [7878-exec-7] healenium                        : [Save Elements] Selector: Selector(uid=97b893f9fa8cf998625afa54ff13703f, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=setText, locator=Locator(value=password, type=By.id), command=findElement, createdDate=2024-11-26T07:45:39.876251786, enableHealing=true) 
+2024-11-26 10:45:40.077  INFO 1 - [7878-exec-8] healenium                        : [Save Elements] Request: By.name(login-button) 
+2024-11-26 10:45:40.081 DEBUG 1 - [7878-exec-8] healenium                        : [Selector ID] Locator: login-button, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:45:40.083 DEBUG 1 - [7878-exec-8] healenium                        : [Selector ID] Result ID: 66c7844ba6d647d082d05920e543ec5f 
+2024-11-26 10:45:40.092 DEBUG 1 - [7878-exec-8] healenium                        : [Save Elements] Selector: Selector(uid=66c7844ba6d647d082d05920e543ec5f, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=click, locator=Locator(value=login-button, type=By.name), command=findElement, createdDate=2024-11-26T07:45:40.091969970, enableHealing=true) 
+2024-11-26 10:45:40.344  INFO 1 - [7878-exec-9] healenium                        : [Save Elements] Request: By.xpath(//h3[@data-test='error']) 
+2024-11-26 10:45:40.347 DEBUG 1 - [7878-exec-9] healenium                        : [Selector ID] Locator: //h3[@data-test='error'], URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:45:40.350 DEBUG 1 - [7878-exec-9] healenium                        : [Selector ID] Result ID: f6729337130b72830c239a00ec890aec 
+2024-11-26 10:45:40.360 DEBUG 1 - [7878-exec-9] healenium                        : [Save Elements] Selector: Selector(uid=f6729337130b72830c239a00ec890aec, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=validateText, locator=Locator(value=//h3[@data-test='error'], type=By.xpath), command=findElement, createdDate=2024-11-26T07:45:40.359294873, enableHealing=true) 
+2024-11-26 10:45:42.516 DEBUG 1 - [878-exec-10] healenium                        : [Get Elements] Response: ConfigSelectorDto(urlForKey=false, pathForKey=false, disableHealingElementDto=[], enableHealingElementsDto=[], findElementsAutoHealing=false) 
+2024-11-26 10:45:43.227  INFO 1 - [7878-exec-2] healenium                        : [Save Elements] Request: By.id(user-name) 
+2024-11-26 10:45:43.233 DEBUG 1 - [7878-exec-2] healenium                        : [Selector ID] Locator: user-name, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:45:43.239 DEBUG 1 - [7878-exec-2] healenium                        : [Selector ID] Result ID: 69735d473c34ed7586f320a25dd791f0 
+2024-11-26 10:45:43.248 DEBUG 1 - [7878-exec-2] healenium                        : [Save Elements] Selector: Selector(uid=69735d473c34ed7586f320a25dd791f0, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=setText, locator=Locator(value=user-name, type=By.id), command=findElement, createdDate=2024-11-26T07:45:43.247232714, enableHealing=true) 
+2024-11-26 10:45:43.496  INFO 1 - [7878-exec-3] healenium                        : [Save Elements] Request: By.id(password) 
+2024-11-26 10:45:43.498 DEBUG 1 - [7878-exec-3] healenium                        : [Selector ID] Locator: password, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:45:43.499 DEBUG 1 - [7878-exec-3] healenium                        : [Selector ID] Result ID: 97b893f9fa8cf998625afa54ff13703f 
+2024-11-26 10:45:43.510 DEBUG 1 - [7878-exec-3] healenium                        : [Save Elements] Selector: Selector(uid=97b893f9fa8cf998625afa54ff13703f, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=setText, locator=Locator(value=password, type=By.id), command=findElement, createdDate=2024-11-26T07:45:43.509895427, enableHealing=true) 
+2024-11-26 10:45:43.687  INFO 1 - [7878-exec-4] healenium                        : [Save Elements] Request: By.name(login-button) 
+2024-11-26 10:45:43.689 DEBUG 1 - [7878-exec-4] healenium                        : [Selector ID] Locator: login-button, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:45:43.690 DEBUG 1 - [7878-exec-4] healenium                        : [Selector ID] Result ID: 66c7844ba6d647d082d05920e543ec5f 
+2024-11-26 10:45:43.699 DEBUG 1 - [7878-exec-4] healenium                        : [Save Elements] Selector: Selector(uid=66c7844ba6d647d082d05920e543ec5f, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=click, locator=Locator(value=login-button, type=By.name), command=findElement, createdDate=2024-11-26T07:45:43.698301879, enableHealing=true) 
+2024-11-26 10:45:45.160  INFO 1 - [hutdownHook] ontainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default' 
+2024-11-26 10:45:45.168  INFO 1 - [hutdownHook] c.z.hikari.HikariDataSource      : HikariPool-1 - Shutdown initiated... 
+2024-11-26 10:45:45.178  INFO 1 - [hutdownHook] c.z.hikari.HikariDataSource      : HikariPool-1 - Shutdown completed. 
+2024-11-26 10:47:43.457  INFO 1 - [       main] c.epam.healenium.Application     : Starting Application v3.4.4 using Java 17.0.10 with PID 1 (/healenium-backend.jar started by root in /) 
+2024-11-26 10:47:43.468  INFO 1 - [       main] c.epam.healenium.Application     : No active profile set, falling back to 1 default profile: "default" 
+2024-11-26 10:47:45.532  INFO 1 - [       main] .RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode. 
+2024-11-26 10:47:45.899  INFO 1 - [       main] .RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 351 ms. Found 4 JPA repository interfaces. 
+2024-11-26 10:47:47.798  INFO 1 - [       main] o.s.b.w.e.t.TomcatWebServer      : Tomcat initialized with port 7878 (http) 
+2024-11-26 10:47:47.824  INFO 1 - [       main] o.a.c.core.StandardService       : Starting service [Tomcat] 
+2024-11-26 10:47:47.825  INFO 1 - [       main] o.a.c.core.StandardEngine        : Starting Servlet engine: [Apache Tomcat/10.1.18] 
+2024-11-26 10:47:47.917  INFO 1 - [       main] o.a.c.c.C.[.[localhost].[/]      : Initializing Spring embedded WebApplicationContext 
+2024-11-26 10:47:47.919  INFO 1 - [       main] rvletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4211 ms 
+2024-11-26 10:47:48.742  INFO 1 - [       main] c.z.hikari.HikariDataSource      : HikariPool-1 - Starting... 
+2024-11-26 10:47:49.130  INFO 1 - [       main] c.z.hikari.HikariDataSource      : HikariPool-1 - Start completed. 
+2024-11-26 10:47:49.496  INFO 1 - [       main] liquibase.database               : Set default schema name to healenium 
+2024-11-26 10:47:50.880  INFO 1 - [       main] liquibase.changelog              : Reading from healenium.databasechangelog 
+2024-11-26 10:47:51.044  INFO 1 - [       main] liquibase.ui                     : Database is up to date, no changesets to execute 
+2024-11-26 10:47:51.050  INFO 1 - [       main] liquibase.changelog              : Reading from healenium.databasechangelog 
+2024-11-26 10:47:51.079  INFO 1 - [       main] liquibase.util                   : UPDATE SUMMARY 
+2024-11-26 10:47:51.080  INFO 1 - [       main] liquibase.util                   : Run:                          0 
+2024-11-26 10:47:51.082  INFO 1 - [       main] liquibase.util                   : Previously run:              10 
+2024-11-26 10:47:51.083  INFO 1 - [       main] liquibase.util                   : Filtered out:                 0 
+2024-11-26 10:47:51.085  INFO 1 - [       main] liquibase.util                   : ------------------------------- 
+2024-11-26 10:47:51.086  INFO 1 - [       main] liquibase.util                   : Total change sets:           10 
+2024-11-26 10:47:51.089  INFO 1 - [       main] liquibase.util                   : Update summary generated 
+2024-11-26 10:47:51.131  INFO 1 - [       main] liquibase.lockservice            : Successfully released change log lock 
+2024-11-26 10:47:51.134  INFO 1 - [       main] liquibase.command                : Command execution complete 
+2024-11-26 10:47:51.440  INFO 1 - [       main] o.h.j.internal.util.LogHelper    : HHH000204: Processing PersistenceUnitInfo [name: default] 
+2024-11-26 10:47:51.617  INFO 1 - [       main] org.hibernate.Version            : HHH000412: Hibernate ORM core version 6.4.1.Final 
+2024-11-26 10:47:51.754  INFO 1 - [       main] o.h.c.i.RegionFactoryInitiator   : HHH000026: Second-level cache disabled 
+2024-11-26 10:47:52.343  INFO 1 - [       main] .o.j.p.SpringPersistenceUnitInfo : No LoadTimeWeaver setup: ignoring JPA class transformer 
+2024-11-26 10:47:52.398  WARN 1 - [       main] org.hibernate.orm.deprecation    : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default) 
+2024-11-26 10:47:54.828  WARN 1 - [       main] o.h.m.internal.MetadataContext   : HHH015011: Unable to locate static metamodel field : com.epam.healenium.model.domain.Selector_#nodePathWrapper; this may or may not indicate a problem with the static metamodel 
+2024-11-26 10:47:54.835  INFO 1 - [       main] h.e.t.j.p.i.JtaPlatformInitiator : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration) 
+2024-11-26 10:47:54.841  INFO 1 - [       main] ontainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default' 
+2024-11-26 10:47:56.502  INFO 1 - [       main] o.s.d.j.r.q.QueryEnhancerFactory : Hibernate is in classpath; If applicable, HQL parser will be used. 
+2024-11-26 10:47:57.839  INFO 1 - [       main] .a.w.s.WelcomePageHandlerMapping : Adding welcome page template: index 
+2024-11-26 10:47:59.531  INFO 1 - [       main] .s.b.a.e.w.EndpointLinksResolver : Exposing 1 endpoint(s) beneath base path '/actuator' 
+2024-11-26 10:47:59.692  INFO 1 - [       main] o.s.b.w.e.t.TomcatWebServer      : Tomcat started on port 7878 (http) with context path '' 
+2024-11-26 10:47:59.909 DEBUG 1 - [       main] healenium                        : [Migrate] There is no selectors to migrate 
+2024-11-26 10:47:59.915  INFO 1 - [       main] c.epam.healenium.Application     : Started Application in 17.525 seconds (process running for 18.835) 
+2024-11-26 10:48:43.294  INFO 1 - [7878-exec-1] o.a.c.c.C.[.[localhost].[/]      : Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2024-11-26 10:48:43.295  INFO 1 - [7878-exec-1] o.s.w.s.DispatcherServlet        : Initializing Servlet 'dispatcherServlet' 
+2024-11-26 10:48:43.297  INFO 1 - [7878-exec-1] o.s.w.s.DispatcherServlet        : Completed initialization in 1 ms 
+2024-11-26 10:48:43.353 DEBUG 1 - [7878-exec-1] healenium                        : [Get Elements] Response: ConfigSelectorDto(urlForKey=false, pathForKey=false, disableHealingElementDto=[], enableHealingElementsDto=[], findElementsAutoHealing=false) 
+2024-11-26 10:48:44.801  INFO 1 - [7878-exec-3] healenium                        : [Save Elements] Request: By.id(user-name) 
+2024-11-26 10:48:44.816 DEBUG 1 - [7878-exec-3] healenium                        : [Selector ID] Locator: user-name, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:48:44.829 DEBUG 1 - [7878-exec-3] healenium                        : [Selector ID] Result ID: 69735d473c34ed7586f320a25dd791f0 
+2024-11-26 10:48:44.972 DEBUG 1 - [7878-exec-3] healenium                        : [Save Elements] Selector: Selector(uid=69735d473c34ed7586f320a25dd791f0, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=setText, locator=Locator(value=user-name, type=By.id), command=findElement, createdDate=2024-11-26T07:48:44.967808241, enableHealing=true) 
+2024-11-26 10:48:45.273  INFO 1 - [7878-exec-4] healenium                        : [Save Elements] Request: By.id(password) 
+2024-11-26 10:48:45.275 DEBUG 1 - [7878-exec-4] healenium                        : [Selector ID] Locator: password, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:48:45.276 DEBUG 1 - [7878-exec-4] healenium                        : [Selector ID] Result ID: 97b893f9fa8cf998625afa54ff13703f 
+2024-11-26 10:48:45.290 DEBUG 1 - [7878-exec-4] healenium                        : [Save Elements] Selector: Selector(uid=97b893f9fa8cf998625afa54ff13703f, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=setText, locator=Locator(value=password, type=By.id), command=findElement, createdDate=2024-11-26T07:48:45.289883754, enableHealing=true) 
+2024-11-26 10:48:45.399  INFO 1 - [7878-exec-5] healenium                        : [Save Elements] Request: By.name(login-button) 
+2024-11-26 10:48:45.400 DEBUG 1 - [7878-exec-5] healenium                        : [Selector ID] Locator: login-button, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:48:45.401 DEBUG 1 - [7878-exec-5] healenium                        : [Selector ID] Result ID: 66c7844ba6d647d082d05920e543ec5f 
+2024-11-26 10:48:45.406 DEBUG 1 - [7878-exec-5] healenium                        : [Save Elements] Selector: Selector(uid=66c7844ba6d647d082d05920e543ec5f, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=click, locator=Locator(value=login-button, type=By.name), command=findElement, createdDate=2024-11-26T07:48:45.405847507, enableHealing=true) 
+2024-11-26 10:48:45.522  INFO 1 - [7878-exec-6] healenium                        : [Save Elements] Request: By.xpath(//h3[@data-test='error']) 
+2024-11-26 10:48:45.523 DEBUG 1 - [7878-exec-6] healenium                        : [Selector ID] Locator: //h3[@data-test='error'], URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:48:45.524 DEBUG 1 - [7878-exec-6] healenium                        : [Selector ID] Result ID: f6729337130b72830c239a00ec890aec 
+2024-11-26 10:48:45.531 DEBUG 1 - [7878-exec-6] healenium                        : [Save Elements] Selector: Selector(uid=f6729337130b72830c239a00ec890aec, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=validateText, locator=Locator(value=//h3[@data-test='error'], type=By.xpath), command=findElement, createdDate=2024-11-26T07:48:45.530682148, enableHealing=true) 
+2024-11-26 10:48:47.201 DEBUG 1 - [7878-exec-7] healenium                        : [Get Elements] Response: ConfigSelectorDto(urlForKey=false, pathForKey=false, disableHealingElementDto=[], enableHealingElementsDto=[], findElementsAutoHealing=false) 
+2024-11-26 10:48:47.929  INFO 1 - [7878-exec-9] healenium                        : [Save Elements] Request: By.id(user-name) 
+2024-11-26 10:48:47.931 DEBUG 1 - [7878-exec-9] healenium                        : [Selector ID] Locator: user-name, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:48:47.932 DEBUG 1 - [7878-exec-9] healenium                        : [Selector ID] Result ID: 69735d473c34ed7586f320a25dd791f0 
+2024-11-26 10:48:47.939 DEBUG 1 - [7878-exec-9] healenium                        : [Save Elements] Selector: Selector(uid=69735d473c34ed7586f320a25dd791f0, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=setText, locator=Locator(value=user-name, type=By.id), command=findElement, createdDate=2024-11-26T07:48:47.938752191, enableHealing=true) 
+2024-11-26 10:48:48.105  INFO 1 - [878-exec-10] healenium                        : [Save Elements] Request: By.id(password) 
+2024-11-26 10:48:48.107 DEBUG 1 - [878-exec-10] healenium                        : [Selector ID] Locator: password, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:48:48.108 DEBUG 1 - [878-exec-10] healenium                        : [Selector ID] Result ID: 97b893f9fa8cf998625afa54ff13703f 
+2024-11-26 10:48:48.123 DEBUG 1 - [878-exec-10] healenium                        : [Save Elements] Selector: Selector(uid=97b893f9fa8cf998625afa54ff13703f, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=setText, locator=Locator(value=password, type=By.id), command=findElement, createdDate=2024-11-26T07:48:48.122865686, enableHealing=true) 
+2024-11-26 10:48:48.283  INFO 1 - [7878-exec-1] healenium                        : [Save Elements] Request: By.name(login-button) 
+2024-11-26 10:48:48.284 DEBUG 1 - [7878-exec-1] healenium                        : [Selector ID] Locator: login-button, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:48:48.285 DEBUG 1 - [7878-exec-1] healenium                        : [Selector ID] Result ID: 66c7844ba6d647d082d05920e543ec5f 
+2024-11-26 10:48:48.297 DEBUG 1 - [7878-exec-1] healenium                        : [Save Elements] Selector: Selector(uid=66c7844ba6d647d082d05920e543ec5f, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=click, locator=Locator(value=login-button, type=By.name), command=findElement, createdDate=2024-11-26T07:48:48.296729864, enableHealing=true) 
+2024-11-26 10:48:48.422  INFO 1 - [7878-exec-2] healenium                        : [Save Elements] Request: By.xpath(//h3[@data-test='error']) 
+2024-11-26 10:48:48.423 DEBUG 1 - [7878-exec-2] healenium                        : [Selector ID] Locator: //h3[@data-test='error'], URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:48:48.423 DEBUG 1 - [7878-exec-2] healenium                        : [Selector ID] Result ID: f6729337130b72830c239a00ec890aec 
+2024-11-26 10:48:48.427 DEBUG 1 - [7878-exec-2] healenium                        : [Save Elements] Selector: Selector(uid=f6729337130b72830c239a00ec890aec, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=validateText, locator=Locator(value=//h3[@data-test='error'], type=By.xpath), command=findElement, createdDate=2024-11-26T07:48:48.427332227, enableHealing=true) 
+2024-11-26 10:48:49.991 DEBUG 1 - [7878-exec-3] healenium                        : [Get Elements] Response: ConfigSelectorDto(urlForKey=false, pathForKey=false, disableHealingElementDto=[], enableHealingElementsDto=[], findElementsAutoHealing=false) 
+2024-11-26 10:48:50.651  INFO 1 - [7878-exec-5] healenium                        : [Save Elements] Request: By.id(user-name) 
+2024-11-26 10:48:50.654 DEBUG 1 - [7878-exec-5] healenium                        : [Selector ID] Locator: user-name, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:48:50.655 DEBUG 1 - [7878-exec-5] healenium                        : [Selector ID] Result ID: 69735d473c34ed7586f320a25dd791f0 
+2024-11-26 10:48:50.667 DEBUG 1 - [7878-exec-5] healenium                        : [Save Elements] Selector: Selector(uid=69735d473c34ed7586f320a25dd791f0, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=setText, locator=Locator(value=user-name, type=By.id), command=findElement, createdDate=2024-11-26T07:48:50.664354954, enableHealing=true) 
+2024-11-26 10:48:50.849  INFO 1 - [7878-exec-6] healenium                        : [Save Elements] Request: By.id(password) 
+2024-11-26 10:48:50.854 DEBUG 1 - [7878-exec-6] healenium                        : [Selector ID] Locator: password, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:48:50.855 DEBUG 1 - [7878-exec-6] healenium                        : [Selector ID] Result ID: 97b893f9fa8cf998625afa54ff13703f 
+2024-11-26 10:48:50.875 DEBUG 1 - [7878-exec-6] healenium                        : [Save Elements] Selector: Selector(uid=97b893f9fa8cf998625afa54ff13703f, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=setText, locator=Locator(value=password, type=By.id), command=findElement, createdDate=2024-11-26T07:48:50.871033528, enableHealing=true) 
+2024-11-26 10:48:51.010  INFO 1 - [7878-exec-7] healenium                        : [Save Elements] Request: By.name(login-button) 
+2024-11-26 10:48:51.011 DEBUG 1 - [7878-exec-7] healenium                        : [Selector ID] Locator: login-button, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:48:51.012 DEBUG 1 - [7878-exec-7] healenium                        : [Selector ID] Result ID: 66c7844ba6d647d082d05920e543ec5f 
+2024-11-26 10:48:51.017 DEBUG 1 - [7878-exec-7] healenium                        : [Save Elements] Selector: Selector(uid=66c7844ba6d647d082d05920e543ec5f, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=click, locator=Locator(value=login-button, type=By.name), command=findElement, createdDate=2024-11-26T07:48:51.017033617, enableHealing=true) 
+2024-11-26 10:48:51.143  INFO 1 - [7878-exec-8] healenium                        : [Save Elements] Request: By.xpath(//h3[@data-test='error']) 
+2024-11-26 10:48:51.144 DEBUG 1 - [7878-exec-8] healenium                        : [Selector ID] Locator: //h3[@data-test='error'], URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:48:51.144 DEBUG 1 - [7878-exec-8] healenium                        : [Selector ID] Result ID: f6729337130b72830c239a00ec890aec 
+2024-11-26 10:48:51.151 DEBUG 1 - [7878-exec-8] healenium                        : [Save Elements] Selector: Selector(uid=f6729337130b72830c239a00ec890aec, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=validateText, locator=Locator(value=//h3[@data-test='error'], type=By.xpath), command=findElement, createdDate=2024-11-26T07:48:51.150741447, enableHealing=true) 
+2024-11-26 10:48:52.860 DEBUG 1 - [7878-exec-9] healenium                        : [Get Elements] Response: ConfigSelectorDto(urlForKey=false, pathForKey=false, disableHealingElementDto=[], enableHealingElementsDto=[], findElementsAutoHealing=false) 
+2024-11-26 10:48:53.584  INFO 1 - [7878-exec-1] healenium                        : [Save Elements] Request: By.id(user-name) 
+2024-11-26 10:48:53.592 DEBUG 1 - [7878-exec-1] healenium                        : [Selector ID] Locator: user-name, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:48:53.598 DEBUG 1 - [7878-exec-1] healenium                        : [Selector ID] Result ID: 69735d473c34ed7586f320a25dd791f0 
+2024-11-26 10:48:53.615 DEBUG 1 - [7878-exec-1] healenium                        : [Save Elements] Selector: Selector(uid=69735d473c34ed7586f320a25dd791f0, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=setText, locator=Locator(value=user-name, type=By.id), command=findElement, createdDate=2024-11-26T07:48:53.613729967, enableHealing=true) 
+2024-11-26 10:48:53.863  INFO 1 - [7878-exec-2] healenium                        : [Save Elements] Request: By.id(password) 
+2024-11-26 10:48:53.869 DEBUG 1 - [7878-exec-2] healenium                        : [Selector ID] Locator: password, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:48:53.871 DEBUG 1 - [7878-exec-2] healenium                        : [Selector ID] Result ID: 97b893f9fa8cf998625afa54ff13703f 
+2024-11-26 10:48:53.887 DEBUG 1 - [7878-exec-2] healenium                        : [Save Elements] Selector: Selector(uid=97b893f9fa8cf998625afa54ff13703f, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=setText, locator=Locator(value=password, type=By.id), command=findElement, createdDate=2024-11-26T07:48:53.885366815, enableHealing=true) 
+2024-11-26 10:48:54.069  INFO 1 - [7878-exec-3] healenium                        : [Save Elements] Request: By.name(login-button) 
+2024-11-26 10:48:54.070 DEBUG 1 - [7878-exec-3] healenium                        : [Selector ID] Locator: login-button, URL(source): https://www.saucedemo.com/, URL(key): , Command: findElement, KEY_SELECTOR_URL: false 
+2024-11-26 10:48:54.070 DEBUG 1 - [7878-exec-3] healenium                        : [Selector ID] Result ID: 66c7844ba6d647d082d05920e543ec5f 
+2024-11-26 10:48:54.076 DEBUG 1 - [7878-exec-3] healenium                        : [Save Elements] Selector: Selector(uid=66c7844ba6d647d082d05920e543ec5f, url=https://www.saucedemo.com/, className=com.capstone.utils.CustomWebDriver, methodName=click, locator=Locator(value=login-button, type=By.name), command=findElement, createdDate=2024-11-26T07:48:54.075876547, enableHealing=true) 
+2024-11-26 10:48:55.378  INFO 1 - [hutdownHook] ontainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default' 
+2024-11-26 10:48:55.399  INFO 1 - [hutdownHook] c.z.hikari.HikariDataSource      : HikariPool-1 - Shutdown initiated... 
+2024-11-26 10:48:55.433  INFO 1 - [hutdownHook] c.z.hikari.HikariDataSource      : HikariPool-1 - Shutdown completed. 

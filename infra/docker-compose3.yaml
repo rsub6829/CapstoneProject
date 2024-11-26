@@ -2,37 +2,20 @@ version: "3.9"
 
 services:
 
-  postgres-db:
-    image: postgres:15.5-alpine
-    container_name: postgres-db
-    restart: always
-    ports:
-      - "5434:5432"
-    volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-    environment:
-      - POSTGRES_DB=healenium
-      - POSTGRES_USER=healenium_user
-      - POSTGRES_PASSWORD=YDk2nmNs4s9aCP6K
-    networks:
-      - healenium
-
   healenium:
     image: healenium/hlm-backend:3.4.4
     container_name: healenium
     restart: on-failure
     ports:
       - "7878:7878"
-    links:
-      - postgres-db
     environment:
       - SPRING_POSTGRES_DB=healenium
       - SPRING_POSTGRES_SCHEMA=healenium
       - SPRING_POSTGRES_USER=healenium_user
-      - SPRING_POSTGRES_PASSWORD=YDk2nmNs4s9aCP6K
-      - SPRING_POSTGRES_DB_HOST=postgres-db
+      - SPRING_POSTGRES_PASSWORD=YDk2nmNs4s9aCP6O
+      - SPRING_POSTGRES_DB_HOST=db-healenium-cluster.cluster-czqesgwywa8i.us-east-1.rds.amazonaws.com
       - KEY_SELECTOR_URL=false
-      - COLLECT_METRICS=true
+      - COLLECT_METRICS=false
       - HLM_LOG_LEVEL=debug
     volumes:
       - ./screenshots/:/screenshots
