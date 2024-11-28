@@ -63,13 +63,13 @@ public class CustomSetup {
 	@BeforeSuite(alwaysRun=true)
 	public void beforeSuiteSetup()
 	{
-		//startDockers();
+		startDockers();
 	}
 	
 	@AfterSuite(alwaysRun=true)
 	public void afterSuiteTearDown()
 	{
-		//stopDockers();
+		stopDockers();
 	}
 	 private void stopDockers()
 	    {
