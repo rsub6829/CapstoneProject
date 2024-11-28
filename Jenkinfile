@@ -4,25 +4,9 @@
    def secrets = [
 	   [path: '/test/data/shop/ss_web_e2e_tests/healenium', engineVersion: 2, secretValues: [
 		   [envVar: 'HEALENIUM_DB_PASSWORD', vaultKey: 'HEALENIUM_DB_PASSWORD']]]]
-   def GetGitChanges()
-   {
-    return true
-   }
-  CODE_CHANGES=GetGitChanges()
-  properties([
-        buildDiscarder(
-                logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '10', numToKeepStr: '')
-        ),
-        disableConcurrentBuilds(),
-        copyArtifactPermission('*'),
-       
-        pipelineTriggers(
-                [
-                        // Trigger at the start of every hour
-                        cron('0 * * * 1-5')
-                ]
-        )
-])
+  
+CODE_CHANGES= true
+ 
 pipeline {
     agent any
      parameters([
@@ -57,8 +41,8 @@ pipeline {
       stage('Start container')
         {
             steps {
-                 sh (script:"docker-compose --env-file default.env up -d  --no-color --wait")
-                 sh (script:"docker compose ps")
+                 sh "docker-compose --env-file default.env up -d  --no-color --wait"
+                 sh "docker compose ps"
             }
         }
 
@@ -71,27 +55,17 @@ pipeline {
           }
           steps {
             env.JAVA_HOME = "${tool 'openjdk-17'}"
-            env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
-            timeout(120){
-                wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: false, debug: false, displayNameOffset: 100, installationName: 'xvfb', parallelBuild: false, screen: '1920x1080x16', timeout: 0]) {
-                    dir('e2e') {
-                        sh(script: "echo `java -version`")
-                        sh(script: "echo `google-chrome --version`")
-
-                        sh(script: "pkill -9 -f \"selenium-server-standalone\" || true")
-                         sh(script: """mvn clean test -Dtest.suite=testng """)
-                        
-                    }
-                }
+            env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"    
+            sh "mvn clean test -Dtest.suite=testng -Denv=${region} -Dbranch=${branch_or_tag}"   
             }
         }
   }
     }
   post {
     always {
-      sh (script:"echo '${PROJECT_NAME} is executed'")
-      sh (script:"docker compose down --remove-orphans -v")
-      sh (script:"docker compose ps")
+      echo "${PROJECT_NAME} is executed"
+      sh "docker compose down --remove-orphans -v"
+      sh "docker compose ps"
     }
     success {
       echo 'Tests passed'
