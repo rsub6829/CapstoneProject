@@ -1,22 +1,75 @@
+   def configuration = [vaultUrl: 'http://my-very-other-vault-url.com',
+                         vaultCredentialId: 'my-valid-credential-id',vaultNamespace:'cx-devops',
+                         engineVersion: 2]
+   def secrets = [
+	   [path: '/test/data/shop/ss_web_e2e_tests/healenium', engineVersion: 2, secretValues: [
+		   [envVar: 'HEALENIUM_DB_PASSWORD', vaultKey: 'HEALENIUM_DB_PASSWORD']]]]
+   def GetGitChanges()
+   {
+    return true
+   }
+  CODE_CHANGES=GetGitChanges()
+  properties([
+        buildDiscarder(
+                logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '10', numToKeepStr: '')
+        ),
+        disableConcurrentBuilds(),
+        copyArtifactPermission('*'),
+       
+        pipelineTriggers(
+                [
+                        // Trigger at the start of every hour
+                        cron('0 * * * 1-5')
+                ]
+        )
+])
 pipeline {
-  agent any
-  stages {
-    stage('Checkout') {
+    agent any
+     parameters([
+                string(
+                        defaultValue: 'origin/masters',
+                        description: "Git branch or tag name to run the E2E suite with.",
+                        name: 'branch_or_tag',
+                        trim: true),
+                choice(name: 'region',
+                        choices: ['region_1', 'region_2'],
+                        description: 'Region to run the E2E suite with.')
+        ])
+    environment{
+      PROJECT_NAME='CapstoneProject'
+    }
+    tools{
+      maven 'maven-3.8.1'
+      jdk 'openjdk-17'
+    }
+    stages {
+
+      stage('Checkout')
+      {
         git(
                 branch: 'master',
                 changelog: false,
                 credentialsId: 'githubSyscoCorporation-svc_bender_000',
                 poll: false,
                 url: 'https://github.com/rsub6829/CapstoneProject.git')
-    }
-    stage('Start container') {
-      steps {
-        sh 'docker-compose --env-file default.env up -d --wait'
-        sh 'docker compose ps'
       }
-    }
+      
+      stage('Start container')
+        {
+            steps {
+                 sh (script:"docker-compose --env-file default.env up -d  --no-color --wait")
+                 sh (script:"docker compose ps")
+            }
+        }
+
   
         stage('Run Tests') {
+          when {
+              expression{
+                BRANCH_NAME=='master' && CODE_CHANGES==true
+              }
+          }
+          steps {
             env.JAVA_HOME = "${tool 'openjdk-17'}"
             env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
             timeout(120){
@@ -26,19 +79,25 @@ pipeline {
                         sh(script: "echo `google-chrome --version`")
 
                         sh(script: "pkill -9 -f \"selenium-server-standalone\" || true")
-
-                        withCredentials([string(credentialsId: 'VAULT_GITHUB_TOKEN', variable: 'VAULT_GITHUB_TOKEN')]) {
-                            sh(script: """mvn clean test -Dtest.layer=gui -Dtest.suite=testng -Dgithub.token=${VAULT_GITHUB_TOKEN}""")
-                        }
+                         sh(script: """mvn clean test -Dtest.suite=testng """)
+                        
                     }
                 }
             }
         }
   }
+    }
   post {
     always {
-      sh 'docker compose down --remove-orphans -v'
-      sh 'docker compose ps'
+      sh (script:"echo '${PROJECT_NAME} is executed'")
+      sh (script:"docker compose down --remove-orphans -v")
+      sh (script:"docker compose ps")
     }
+    success {
+      echo 'Tests passed'
+    }
+    failure {
+      echo 'Tests failed'
   }
-}
+  }
+  }
