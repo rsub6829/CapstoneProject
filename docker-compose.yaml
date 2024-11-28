@@ -23,7 +23,7 @@ services:
     container_name: healenium
     restart: on-failure
     ports:
-      - "7878:7878"
+      - "7000:7878"
     environment:
       - SPRING_POSTGRES_DB=healenium
       - SPRING_POSTGRES_SCHEMA=healenium
@@ -46,7 +46,7 @@ services:
     container_name: selector-imitator
     restart: on-failure
     ports:
-      - "8000:8000"
+      - "8001:8000"
     networks:
       - healenium
 
