@@ -62,14 +62,20 @@ public class CustomSetup {
 	
 	@BeforeSuite(alwaysRun=true)
 	public void beforeSuiteSetup()
-	{
-		startDockers();
+	{	
+		try {
+			Thread.sleep(60000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//startDockers();
 	}
 	
 	@AfterSuite(alwaysRun=true)
 	public void afterSuiteTearDown()
 	{
-		stopDockers();
+		//stopDockers();
 	}
 	 private void stopDockers()
 	    {
