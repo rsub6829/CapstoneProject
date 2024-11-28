@@ -2,24 +2,7 @@ version: "3.9"
 
 services:
 
-
-  postgres-db:
-    image: postgres:15.5-alpine
-    container_name: postgres-db
-    restart: always
-    ports:
-      - "5434:5432"
-    volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-    environment:
-      - POSTGRES_DB=healenium
-      - POSTGRES_USER=healenium_user
-      - POSTGRES_PASSWORD=${DB_PWD}
-    env_file:
-          - ./default.env
-    networks:
-      - healenium
-   
+       
   healenium:
     image: healenium/hlm-backend:3.4.6
     container_name: healenium
@@ -27,21 +10,21 @@ services:
     ports:
       - "7878:7878"
     environment:
-      - SPRING_POSTGRES_DB=healenium
+      - SPRING_POSTGRES_DB=dashboard
       - SPRING_POSTGRES_SCHEMA=healenium
-      - SPRING_POSTGRES_USER=healenium_user
-      - SPRING_POSTGRES_PASSWORD=${DB_PWD}
-      - SPRING_POSTGRES_DB_HOST=postgres-db
+      - SPRING_POSTGRES_USER=healeniumusr
+      - SPRING_POSTGRES_PASSWORD=/run/secrets/db_pwd
+      - SPRING_POSTGRES_DB_HOST=cx-engineering-dashboard.cluster-c2wox3myqpsn.us-east-1.rds.amazonaws.com
       - KEY_SELECTOR_URL=false
       - COLLECT_METRICS=true
       - HLM_LOG_LEVEL=debug
     volumes:
       - ./screenshots/:/screenshots
       - ./logs/:/logs
-    env_file:
-          - ./default.env
     networks:
       - healenium
+    secrets:
+       - db_pwd
 
   selector-imitator:
     image: healenium/hlm-selector-imitator:1.4
@@ -51,7 +34,9 @@ services:
       - "8000:8000"
     networks:
       - healenium
-
+secrets:
+   db_pwd:
+     file: db_pwd.txt
 networks:
   healenium:
     name: healenium

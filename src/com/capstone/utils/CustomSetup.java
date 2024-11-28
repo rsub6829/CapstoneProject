@@ -63,12 +63,12 @@ public class CustomSetup {
 	@BeforeSuite(alwaysRun=true)
 	public void beforeSuiteSetup()
 	{	
-		try {
-			Thread.sleep(60000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			Thread.sleep(60000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		//startDockers();
 	}
 	
@@ -109,12 +109,12 @@ public class CustomSetup {
 	    private void startDockers()
 	    {
 	    	System.out.println("****** Start docker *****");
-	    	ProcessBuilder pb = new ProcessBuilder("cmd.exe", "/C","docker-compose --env-file default.env up -d");
+	    	ProcessBuilder pb = new ProcessBuilder("cmd.exe", "/C","docker-compose up -d");
 	    	//pb.command("/docker_start.bat");
 	    	try {
 
 	    		Process process = pb.start();
-	    		Thread.sleep(60000);
+	    		Thread.sleep(30000);
 	    		pb = new ProcessBuilder(
 			            "cmd.exe", "/c", "docker ps");
 	    		pb.redirectErrorStream(true);
