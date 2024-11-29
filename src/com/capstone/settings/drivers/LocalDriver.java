@@ -29,7 +29,8 @@ public class LocalDriver implements IDriverInterface {
     public Object useChrome() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
         WebDriver delegate = new ChromeDriver(options);
         return delegate;
     }
