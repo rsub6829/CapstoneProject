@@ -159,7 +159,7 @@ public class CustomSetup {
 		switch(browserName.toLowerCase())
 		{
 		case "chrome":
-			WebDriverManager.chromedriver().setup();
+			//WebDriverManager.chromedriver().setup();
 			ChromeOptions chromeOptions=new ChromeOptions();
 			 try {
 				//WebDriver driver1 = new DriverContext(DriverType.LOCAL).getDriver(BrowserType.CHROME);
@@ -177,7 +177,7 @@ public class CustomSetup {
 
 			break;
 		case "firefox":
-			WebDriverManager.firefoxdriver().setup();
+			//WebDriverManager.firefoxdriver().setup();
 			FirefoxOptions fireFoxoptions=new FirefoxOptions();
 				driver=SelfHealingDriver.create(new FirefoxDriver(fireFoxoptions));
 				// session = ((FirefoxDriver)driver).getSessionId();
