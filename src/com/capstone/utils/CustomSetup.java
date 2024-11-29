@@ -160,10 +160,13 @@ public class CustomSetup {
 		{
 		case "chrome":
 			//WebDriverManager.chromedriver().setup();
-			ChromeOptions chromeOptions=new ChromeOptions();
+			ChromeOptions options=new ChromeOptions();
+			 options.addArguments("--headless");
+		        options.addArguments("--no-sandbox");
+		        options.addArguments("--disable-dev-shm-usage");
 			 try {
 				//WebDriver driver1 = new DriverContext(DriverType.LOCAL).getDriver(BrowserType.CHROME);
-				 delegateDriver=new ChromeDriver(chromeOptions);
+				 delegateDriver=new ChromeDriver(options);
 				driver=SelfHealingDriver.create(delegateDriver);
 				//driver=SelfHealingDriver.create(driver1);
 			 } catch (Exception e) {
