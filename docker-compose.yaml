@@ -13,7 +13,7 @@ services:
       - SPRING_POSTGRES_DB=dashboard
       - SPRING_POSTGRES_SCHEMA=healenium
       - SPRING_POSTGRES_USER=healeniumusr
-      - SPRING_POSTGRES_PASSWORD=/run/secrets/db_pwd
+      - SPRING_POSTGRES_PASSWORD=db_pwd
       - SPRING_POSTGRES_DB_HOST=cx-engineering-dashboard.cluster-c2wox3myqpsn.us-east-1.rds.amazonaws.com
       - KEY_SELECTOR_URL=false
       - COLLECT_METRICS=true
@@ -23,8 +23,8 @@ services:
       - ./logs/:/logs
     networks:
       - healenium
-    secrets:
-       - db_pwd
+   
+    
 
   selector-imitator:
     image: healenium/hlm-selector-imitator:1.4
@@ -34,9 +34,6 @@ services:
       - "8000:8000"
     networks:
       - healenium
-secrets:
-   db_pwd:
-     file: db_pwd.txt
 networks:
   healenium:
     name: healenium
