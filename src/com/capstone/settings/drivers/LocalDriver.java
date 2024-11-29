@@ -27,7 +27,6 @@ public class LocalDriver implements IDriverInterface {
 
     @Override
     public Object useChrome() {
-        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
@@ -38,7 +37,6 @@ public class LocalDriver implements IDriverInterface {
 
     @Override
     public Object useFirefox() {
-        WebDriverManager.firefoxdriver().setup();
         FirefoxOptions options = new FirefoxOptions();
 //        options.setHeadless(false);
 
@@ -48,7 +46,6 @@ public class LocalDriver implements IDriverInterface {
 
     @Override
     public Object useEdge() {
-        WebDriverManager.edgedriver().setup();
         EdgeOptions options = new EdgeOptions();
 
         WebDriver delegate = new EdgeDriver(options);
