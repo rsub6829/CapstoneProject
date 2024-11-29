@@ -25,6 +25,8 @@ public class ProxyDriver implements IDriverInterface {
     @Override
     public Object useChrome() {
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
         return options;
     }
 
