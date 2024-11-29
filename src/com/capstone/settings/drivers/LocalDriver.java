@@ -31,6 +31,7 @@ public class LocalDriver implements IDriverInterface {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
         WebDriver delegate = new ChromeDriver(options);
         return delegate;
     }
