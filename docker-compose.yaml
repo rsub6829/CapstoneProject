@@ -17,7 +17,7 @@ services:
       - SPRING_POSTGRES_DB_HOST=cx-engineering-dashboard.cluster-c2wox3myqpsn.us-east-1.rds.amazonaws.com
       - KEY_SELECTOR_URL=false
       - COLLECT_METRICS=true
-      - HLM_LOG_LEVEL=debug
+      - HLM_LOG_LEVEL=info
     volumes:
       - ./screenshots/:/screenshots
       - ./logs/:/logs
